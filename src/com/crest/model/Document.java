@@ -1,8 +1,5 @@
 package com.crest.model;
 
-/**
- * Created by acer on 11/11/2014.
- */
 public abstract class Document {
 
     private String title;

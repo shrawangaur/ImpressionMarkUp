@@ -1,13 +1,10 @@
 package com.crest.model;
 
 import com.crest.service.ImpressionServiceFactory;
-import com.crest.service.ServiceThread;
+import com.crest.service.ImpressionServiceThread;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by sg22702 on 11/12/14.
- */
 public class JournalTest {
 
     @Test
@@ -19,8 +16,8 @@ public class JournalTest {
         //When
         ImpressionServiceFactory impressionServiceFactory = new ImpressionServiceFactory();
         Ticket journalTicket = impressionServiceFactory.submitRequestForImpressionMark(journal);
-        ServiceThread serviceThread = new ServiceThread();
-        serviceThread.start();
+        ImpressionServiceThread impressionServiceThread = new ImpressionServiceThread();
+        impressionServiceThread.start();
         try{
         Thread.sleep(1000);
         }catch (Exception e){}

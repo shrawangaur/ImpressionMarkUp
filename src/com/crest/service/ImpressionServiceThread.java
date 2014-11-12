@@ -5,9 +5,6 @@ import com.crest.model.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by acer on 11/12/2014.
- */
 public class ImpressionServiceThread extends Thread {
     private static List<Document> pendingDocumentList = new ArrayList<Document>();
 
@@ -30,6 +27,14 @@ public class ImpressionServiceThread extends Thread {
         } catch (Exception _ex) {
             //TODO : Log
         }
+    }
+
+    public static List<Document> getPendingDocumentList() {
+        return pendingDocumentList;
+    }
+
+    public static void setPendingDocumentList(List<Document> pendingDocumentList) {
+        ImpressionServiceThread.pendingDocumentList = pendingDocumentList;
     }
 
 }

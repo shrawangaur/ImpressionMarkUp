@@ -7,9 +7,6 @@ import com.crest.model.Ticket;
 import com.crest.service.ImpressionServiceFactory;
 import com.crest.service.ImpressionServiceThread;
 
-/**
- * Created by acer on 11/11/2014.
- */
 public class SpringerImpression {
 
 

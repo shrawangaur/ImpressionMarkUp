@@ -9,9 +9,6 @@ import java.util.Random;
 
 import static com.crest.service.ImpressionServiceThread.addDocumentToMarkImpression;
 
-/**
- * Created by acer on 11/12/2014.
- */
 public class ImpressionServiceFactory {
 
     private Map<Ticket, Document> ticketDocumentMap = new HashMap<Ticket, Document>();
@@ -53,5 +50,13 @@ public class ImpressionServiceFactory {
 
         Document queriedDocument = ticketDocumentMap.get(_ticket);
         return queriedDocument.getImpressionMarkProperty();
+    }
+
+    public Map<Ticket, Document> getTicketDocumentMap() {
+        return ticketDocumentMap;
+    }
+
+    public void setTicketDocumentMap(Map<Ticket, Document> ticketDocumentMap) {
+        this.ticketDocumentMap = ticketDocumentMap;
     }
 }
