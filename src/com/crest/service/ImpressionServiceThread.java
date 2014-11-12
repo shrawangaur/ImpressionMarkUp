@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by acer on 11/12/2014.
  */
-public class ServiceThread extends Thread {
+public class ImpressionServiceThread extends Thread {
     private static List<Document> pendingDocumentList = new ArrayList<Document>();
 
     public static void addDocumentToMarkImpression(Document _document) {

@@ -1,11 +1,11 @@
 package com.crest;
 
-import com.crest.modal.Book;
-import com.crest.modal.Document;
-import com.crest.modal.Journal;
-import com.crest.modal.Ticket;
-import com.crest.service.ServiceFactory;
-import com.crest.service.ServiceThread;
+import com.crest.model.Book;
+import com.crest.model.Document;
+import com.crest.model.Journal;
+import com.crest.model.Ticket;
+import com.crest.service.ImpressionServiceFactory;
+import com.crest.service.ImpressionServiceThread;
 
 /**
  * Created by acer on 11/11/2014.
@@ -14,25 +14,25 @@ public class SpringerImpression {
 
 
     public static void main(String... args) throws Exception{
-        ServiceThread serviceThread = new ServiceThread();
-        serviceThread.start();
+        ImpressionServiceThread impressionServiceThread = new ImpressionServiceThread();
+        impressionServiceThread.start();
 
         Document book = new Book("The Dark Code", "Bruce Wayne", "Business");
         Document journal = new Journal("Journal of human flight routes", "Clark kent");
 
 
 
-        ServiceFactory serviceFactory = new ServiceFactory();
-        Ticket bookTkt = serviceFactory.submitRequestForImpressionMark(book);
+        ImpressionServiceFactory impressionServiceFactory = new ImpressionServiceFactory();
+        Ticket bookTkt = impressionServiceFactory.submitRequestForImpressionMark(book);
 
-        System.out.println("This request is just submitted. Its poll status is " + serviceFactory.getStatus(bookTkt));
+        System.out.println("This request is just submitted. Its poll status is " + impressionServiceFactory.getStatus(bookTkt));
 
-        Ticket  journalTkt = serviceFactory.submitRequestForImpressionMark(journal);
+        Ticket  journalTkt = impressionServiceFactory.submitRequestForImpressionMark(journal);
         Thread.sleep(1000);
-        System.out.println("This request has taken time . Its poll status is " + serviceFactory.getStatus(bookTkt) + " and its impression mark is " + serviceFactory.getImpressionMark(bookTkt));
-        System.out.println(serviceFactory.getStatus(bookTkt));
-        System.out.println(serviceFactory.getStatus(journalTkt));
-        System.out.println(serviceFactory.getImpressionMark(bookTkt));
-        System.out.println(serviceFactory.getImpressionMark(journalTkt));
+        System.out.println("This request has taken time . Its poll status is " + impressionServiceFactory.getStatus(bookTkt) + " and its impression mark is " + impressionServiceFactory.getImpressionMark(bookTkt));
+        System.out.println(impressionServiceFactory.getStatus(bookTkt));
+        System.out.println(impressionServiceFactory.getStatus(journalTkt));
+        System.out.println(impressionServiceFactory.getImpressionMark(bookTkt));
+        System.out.println(impressionServiceFactory.getImpressionMark(journalTkt));
     }
 }
