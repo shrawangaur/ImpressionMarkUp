@@ -33,8 +33,4 @@ public class ImpressionServiceThread extends Thread {
         return pendingDocumentList;
     }
 
-    public static void setPendingDocumentList(List<Document> pendingDocumentList) {
-        ImpressionServiceThread.pendingDocumentList = pendingDocumentList;
-    }
-
-}
+ }
